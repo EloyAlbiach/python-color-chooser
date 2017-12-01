@@ -26,10 +26,9 @@ def decToBinStr(valor):
         aux = q // 2
         r = q % 2
         q = aux
-        c = c + str(r)
-    c = c + str(q)
-    # Invertim la cadena per mostrar el valor en binari correcte
-    return c[::-1]
+        c = str(r) + c
+    c = str(q) + c
+    return c
 
 def decToHex(entrada):
     """ Torna una cadena en hexadecimal """
