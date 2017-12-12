@@ -2,7 +2,7 @@
 
 import sys
 from PyQt4.QtGui import *
-from PyQt4 import QtGui
+from PyQt4 import QtCore, QtGui
 
 from colorsUI import Ui_Dialog
 ''' Importa interfície gràfica '''
@@ -25,6 +25,12 @@ class Colors(QDialog, Ui_Dialog):
         super(Colors, self).__init__()
         # Constructor de la classe pare
         self.setupUi(self)
+        QtCore.QObject.connect(self.pushButton, QtCore.SIGNAL(("clicked()")), self.sortir)
+        QtCore.QObject.connect(self.pushButton_2, QtCore.SIGNAL(("clicked()")), self.mostraPaleta)
+        QtCore.QObject.connect(self.horizontalSlider, QtCore.SIGNAL(("valueChanged(int)")), self.recalcula)
+        QtCore.QObject.connect(self.horizontalSlider_2, QtCore.SIGNAL(("valueChanged(int)")), self.recalcula)
+        QtCore.QObject.connect(self.horizontalSlider_3, QtCore.SIGNAL(("valueChanged(int)")), self.recalcula)
+
 
     def recalcula(self):
         self.__red = self.horizontalSlider.value()
